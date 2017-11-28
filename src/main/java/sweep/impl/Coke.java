@@ -11,6 +11,7 @@ import sweep.IProduct;
  */
 public class Coke implements IProduct {
     private int price;
+    private final UUID id = UUID.randomUUID();
     
     /**
      * @param i
@@ -34,6 +35,6 @@ public class Coke implements IProduct {
      */
     @Override
     public UUID getId() {
-        return null;
+        return id;
     }
 }

@@ -50,4 +50,13 @@ public class BulkPriceOffer implements IOffer {
 
         return saving;
     }
+
+    /**
+     * @return
+     * @see sweep.offers.IOffer#getProductId()
+     */
+    @Override
+    public UUID getProductId() {
+        return productId;
+    }
 }
