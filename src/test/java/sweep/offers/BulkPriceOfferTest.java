@@ -32,6 +32,11 @@ public class BulkPriceOfferTest {
         when(beans.getId()).thenReturn(UUID.randomUUID());
         when(beans.getPrice()).thenReturn(50);
     }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testCannotHaveZeroAmountForBulkOffer(){
+        new BulkPriceOffer(coke.getId(), 0, 0);
+    }
 
     @Test
     public void testSavingShouldBeTotalCostOfItemsMinusBulkPrice() throws Exception {

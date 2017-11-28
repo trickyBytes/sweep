@@ -24,6 +24,10 @@ public class BulkPriceOffer implements IOffer {
      * @param amount
      */
     public BulkPriceOffer(UUID productId, int amount, int bulkPrice) {
+        if (amount <= 0){
+            throw new IllegalArgumentException("amount should be greater than zero");
+        }
+                
         this.bulkPrice = bulkPrice;
         this.productId = productId;
         this.amount = amount;
