@@ -8,16 +8,18 @@ import org.junit.Test;
 import sweep.impl.Basket;
 import sweep.impl.Coke;
 import sweep.impl.Till;
+import sweep.offers.IOffer;
 
 /**
  * CheckoutTests.
  *
  * @author trickyBytes
  */
-public class TillTests {
+public class TillTest {
     IBasket basket;
     ITill till;
     IProduct coke;
+    IOffer twoForOneOnCoke;
     
     @Before
     public void setUp(){

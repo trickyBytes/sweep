@@ -1,5 +1,7 @@
 package sweep;
 
+import java.util.UUID;
+
 /**
  * IProduct.
  *
@@ -13,4 +15,11 @@ public interface IProduct {
      * @return
      */
     int getPrice();
+
+    /**
+     * TODO.
+     * 
+     * @return
+     */
+    UUID getId();
 }

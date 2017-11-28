@@ -1,5 +1,7 @@
 package sweep;
 
+import sweep.offers.IOffer;
+
 /**
  * ITill.
  *
@@ -14,4 +16,11 @@ public interface ITill {
      * @return
      */
     int calculateTotal(IBasket basket);
+
+    /**
+     * TODO.
+     * 
+     * @param offer
+     */
+    void addOffer(IOffer offer);
 }

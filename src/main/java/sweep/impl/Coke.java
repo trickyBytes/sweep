@@ -1,5 +1,7 @@
 package sweep.impl;
 
+import java.util.UUID;
+
 import sweep.IProduct;
 
 /**
@@ -9,7 +11,7 @@ import sweep.IProduct;
  */
 public class Coke implements IProduct {
     private int price;
-
+    
     /**
      * @param i
      */
@@ -24,5 +26,14 @@ public class Coke implements IProduct {
     @Override
     public int getPrice() {
         return price;
+    }
+
+    /**
+     * @return
+     * @see sweep.IProduct#getId()
+     */
+    @Override
+    public UUID getId() {
+        return null;
     }
 }
