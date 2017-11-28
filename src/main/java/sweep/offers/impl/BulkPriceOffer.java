@@ -13,15 +13,15 @@ import sweep.offers.IOffer;
  * @author trickyBytes
  */
 public class BulkPriceOffer implements IOffer {
-    
+
     private final int bulkPrice;
     private final UUID productId;
     private final int amount;
 
     /**
      * @param productId
-     * @param bulkPrice 
-     * @param amount 
+     * @param bulkPrice
+     * @param amount
      */
     public BulkPriceOffer(UUID productId, int amount, int bulkPrice) {
         this.bulkPrice = bulkPrice;
@@ -37,14 +37,13 @@ public class BulkPriceOffer implements IOffer {
     @Override
     public ISaving getSaving(IProduct product, int amount) {
         ISaving saving = new Saving(0);
-        
-        if(product.getId().equals(productId) && amount == this.amount){
-            final int subTotal = amount * product.getPrice();
-                        
-            saving = new Saving(bulkPrice - subTotal);
+
+        if (product.getId().equals(productId) && amount >= this.amount) {
+            final int multiples = amount / this.amount;
+            final int subTotal = (multiples * this.amount) * product.getPrice();
+            saving = new Saving((bulkPrice * multiples) - subTotal);
         }
-        
+
         return saving;
     }
-
 }

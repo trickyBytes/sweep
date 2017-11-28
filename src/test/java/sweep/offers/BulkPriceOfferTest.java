@@ -51,6 +51,41 @@ public class BulkPriceOfferTest {
         assertNotNull(saving);
         assertEquals("Amount of saving", 0, saving.getAmmount());
     }
+    
+    @Test
+    public void testSavingIsCorrectIfAmountOfItemsIsBulkPlusOne() throws Exception {
+        IOffer offer = new BulkPriceOffer(coke.getId(), 2, 100);
+        
+        int amount = 3;
+        ISaving saving = offer.getSaving(coke, amount);
+        assertNotNull(saving);
+        assertEquals("Amount of saving", -40, saving.getAmmount());
+    }
+    
+    @Test
+    public void testSavingIsAppliedToMultiplesOfBulkAmounts() throws Exception {
+        IOffer offer = new BulkPriceOffer(coke.getId(), 2, 100);
+        
+        int amount = 4;
+        ISaving saving = offer.getSaving(coke, amount);
+        assertNotNull(saving);
+        assertEquals("Amount of saving", -80, saving.getAmmount());
+        
+        amount = 5;
+        saving = offer.getSaving(coke, amount);
+        assertNotNull(saving);
+        assertEquals("Amount of saving", -80, saving.getAmmount());
+    }
+    
+    @Test
+    public void oddNumberForBulkAmount() throws Exception {
+        IOffer offer = new BulkPriceOffer(beans.getId(), 3, 100);
+        
+        int amount = 3;
+        ISaving saving = offer.getSaving(beans, amount);
+        assertNotNull(saving);
+        assertEquals("Amount of saving", -50, saving.getAmmount());
+    }
 
     @Test
     public void testSavingOnlyAppliedToSelectedProductOnly() throws Exception {
