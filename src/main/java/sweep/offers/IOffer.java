@@ -14,8 +14,9 @@ public interface IOffer {
      * TODO.
      * 
      * @param product
+     * @param amount 
      * @return
      */
-    ISaving getSaving(IProduct product);
+    ISaving getSaving(IProduct product, int amount);
 
 }

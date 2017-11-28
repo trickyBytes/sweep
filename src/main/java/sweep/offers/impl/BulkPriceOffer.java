@@ -16,15 +16,17 @@ public class BulkPriceOffer implements IOffer {
     
     private final int bulkPrice;
     private final UUID productId;
+    private final int amount;
 
     /**
      * @param productId
      * @param bulkPrice 
-     * @param numberOfItems 
+     * @param amount 
      */
-    public BulkPriceOffer(UUID productId, int numberOfItems, int bulkPrice) {
+    public BulkPriceOffer(UUID productId, int amount, int bulkPrice) {
         this.bulkPrice = bulkPrice;
         this.productId = productId;
+        this.amount = amount;
     }
 
     /**
@@ -33,11 +35,13 @@ public class BulkPriceOffer implements IOffer {
      * @see sweep.offers.IOffer#getSaving(sweep.IProduct)
      */
     @Override
-    public ISaving getSaving(IProduct product) {
+    public ISaving getSaving(IProduct product, int amount) {
         ISaving saving = new Saving(0);
         
-        if(product.getId().equals(productId)){
-            saving = new Saving(bulkPrice);
+        if(product.getId().equals(productId) && amount == this.amount){
+            final int subTotal = amount * product.getPrice();
+                        
+            saving = new Saving(bulkPrice - subTotal);
         }
         
         return saving;
