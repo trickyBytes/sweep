@@ -86,7 +86,6 @@ public class TillTest {
         
         assertEquals("Subtotal", 190, ((Till)till).calculateSubTotal(basket));
         assertEquals("Savings", -40, ((Till)till).calcualteSavings(basket, Arrays.asList(offer)));
-        
         assertEquals("Total Price", 150, till.calculateTotal(basket));
     }
 }

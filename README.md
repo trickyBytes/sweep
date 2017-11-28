@@ -42,6 +42,12 @@ Total/3 but what happens if there are 4 items? Usually this would be a full-pric
 - Bulk Price Offers can be applied to multiples of the offer, i.e. if the bulk price is 100 for two items, then if there are 4 items you should get them for 200
 - Offers are not time limited for now
 
+### TODO's
+- Test combinations of offers
+- Look at complexity, can offers and products be simpler, plus do we need a til?
+
+
+
 
 
 
