@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import sweep.IProduct;
 import sweep.ISaving;
+import sweep.impl.Saving;
 import sweep.offers.IOffer;
 
 /**
@@ -12,32 +13,34 @@ import sweep.offers.IOffer;
  * @author trickyBytes
  */
 public class GetNthItemFreeOffer extends Offer implements IOffer {
-
+    private final int amountOfProductAtFullPrice;
+    
     /**
      * @param productId
-     * @param numItemsAtFullPrice
+     * @param amountOfProductAtFullPrice
      */
-    public GetNthItemFreeOffer(UUID productId, int numItemsAtFullPrice) {
+    public GetNthItemFreeOffer(UUID productId, int amountOfProductAtFullPrice) {
         super(productId);
+        this.amountOfProductAtFullPrice = amountOfProductAtFullPrice;
     }
 
     /**
      * @param product
-     * @param amount
+     * @param amountOfProduct
      * @return
      * @see sweep.offers.IOffer#getSaving(sweep.IProduct, int)
      */
     @Override
-    public ISaving getSaving(IProduct product, int amount) {
-        return null;
-    }
-
-    /**
-     * @return
-     * @see sweep.offers.IOffer#getProductId()
-     */
-    @Override
-    public UUID getProductId() {
-        return null;
+    public ISaving getSaving(IProduct product, int amountOfProduct) {
+        ISaving saving = new Saving(0);
+        
+        if (product.getId().equals(getProductId()) && amountOfProduct >= this.amountOfProductAtFullPrice) {
+            final int multiples = amountOfProduct / (this.amountOfProductAtFullPrice + 1);
+            final int subTotal = (multiples * this.amountOfProductAtFullPrice) * product.getPrice();
+            
+            saving = new Saving((product.getPrice() * multiples) - subTotal);
+        }
+                
+        return saving;
     }
 }
