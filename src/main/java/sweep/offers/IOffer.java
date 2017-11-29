@@ -2,8 +2,8 @@ package sweep.offers;
 
 import java.util.UUID;
 
-import sweep.IProduct;
 import sweep.ISaving;
+import sweep.products.IProduct;
 
 /**
  * IOfferI.

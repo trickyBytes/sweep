@@ -8,9 +8,9 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import sweep.IProduct;
 import sweep.ISaving;
 import sweep.offers.impl.BulkPriceOffer;
+import sweep.products.IProduct;
 
 /**
  * TwoForOneOfferTest.

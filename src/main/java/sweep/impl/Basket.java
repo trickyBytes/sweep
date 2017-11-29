@@ -8,7 +8,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import sweep.IBasket;
-import sweep.IProduct;
+import sweep.products.IProduct;
 
 /**
  * Basket.
@@ -20,7 +20,7 @@ public class Basket implements IBasket {
     
     /**
      * @param product
-     * @see sweep.IBasket#addProduce(sweep.IProduct)
+     * @see sweep.IBasket#addProduce(sweep.products.IProduct)
      */
     @Override
     public void addProduce(IProduct product) {

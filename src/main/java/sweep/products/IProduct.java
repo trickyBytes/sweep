@@ -1,4 +1,4 @@
-package sweep;
+package sweep.products;
 
 import java.util.UUID;
 

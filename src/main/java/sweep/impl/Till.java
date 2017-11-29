@@ -6,10 +6,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import sweep.IBasket;
-import sweep.IProduct;
 import sweep.ISaving;
 import sweep.ITill;
 import sweep.offers.IOffer;
+import sweep.products.IProduct;
 
 /**
  * Till.

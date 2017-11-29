@@ -2,9 +2,9 @@ package sweep.offers.impl;
 
 import java.util.UUID;
 
-import sweep.IProduct;
 import sweep.ISaving;
 import sweep.offers.IOffer;
+import sweep.products.IProduct;
 
 /**
  * Offer.
@@ -22,7 +22,7 @@ public abstract class Offer implements IOffer {
      * @param product
      * @param amount
      * @return
-     * @see sweep.offers.IOffer#getSaving(sweep.IProduct, int)
+     * @see sweep.offers.IOffer#getSaving(sweep.products.IProduct, int)
      */
     @Override
     abstract public ISaving getSaving(IProduct product, int amount);

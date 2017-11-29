@@ -2,10 +2,10 @@ package sweep.offers.impl;
 
 import java.util.UUID;
 
-import sweep.IProduct;
 import sweep.ISaving;
 import sweep.impl.Saving;
 import sweep.offers.IOffer;
+import sweep.products.IProduct;
 
 /**
  * TwoForOneOffer.
@@ -36,7 +36,7 @@ public class BulkPriceOffer extends Offer implements IOffer{
     /**
      * @param product
      * @return
-     * @see sweep.offers.IOffer#getSaving(sweep.IProduct)
+     * @see sweep.offers.IOffer#getSaving(sweep.products.IProduct)
      */
     @Override
     public ISaving getSaving(IProduct product, int amount) {

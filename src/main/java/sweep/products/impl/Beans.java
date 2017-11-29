@@ -1,6 +1,6 @@
-package sweep.impl;
+package sweep.products.impl;
 
-import sweep.IProduct;
+import sweep.products.IProduct;
 
 /**
  * Beans.

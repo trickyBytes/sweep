@@ -1,8 +1,8 @@
-package sweep.impl;
+package sweep.products.impl;
 
 import java.util.UUID;
 
-import sweep.IProduct;
+import sweep.products.IProduct;
 
 /**
  * Coke.
@@ -22,7 +22,7 @@ public class Coke implements IProduct {
 
     /**
      * @return
-     * @see sweep.IProduct#getPrice()
+     * @see sweep.products.IProduct#getPrice()
      */
     @Override
     public int getPrice() {
@@ -31,7 +31,7 @@ public class Coke implements IProduct {
 
     /**
      * @return
-     * @see sweep.IProduct#getId()
+     * @see sweep.products.IProduct#getId()
      */
     @Override
     public UUID getId() {

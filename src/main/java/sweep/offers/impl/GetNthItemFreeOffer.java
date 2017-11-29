@@ -2,10 +2,10 @@ package sweep.offers.impl;
 
 import java.util.UUID;
 
-import sweep.IProduct;
 import sweep.ISaving;
 import sweep.impl.Saving;
 import sweep.offers.IOffer;
+import sweep.products.IProduct;
 
 /**
  * GetNthItemFreeOffer.
@@ -28,7 +28,7 @@ public class GetNthItemFreeOffer extends Offer implements IOffer {
      * @param product
      * @param amountOfProduct
      * @return
-     * @see sweep.offers.IOffer#getSaving(sweep.IProduct, int)
+     * @see sweep.offers.IOffer#getSaving(sweep.products.IProduct, int)
      */
     @Override
     public ISaving getSaving(IProduct product, int amountOfProduct) {

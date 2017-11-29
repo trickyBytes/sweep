@@ -9,9 +9,9 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import sweep.IProduct;
 import sweep.ISaving;
 import sweep.offers.impl.GetNthItemFreeOffer;
+import sweep.products.IProduct;
 
 /**
  * GetNthItemFreeOfferTest.

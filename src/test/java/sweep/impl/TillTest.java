@@ -11,14 +11,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sweep.IBasket;
-import sweep.IProduct;
 import sweep.ISaving;
 import sweep.ITill;
 import sweep.impl.Basket;
-import sweep.impl.Beans;
-import sweep.impl.Coke;
 import sweep.impl.Till;
 import sweep.offers.IOffer;
+import sweep.products.IProduct;
+import sweep.products.impl.Beans;
+import sweep.products.impl.Coke;
 
 /**
  * CheckoutTests.
