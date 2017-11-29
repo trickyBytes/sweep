@@ -54,4 +54,16 @@ public class Basket implements IBasket {
     public Map<IProduct, Long> ammountOfProducts() {
         return products.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
+
+    /**
+     * @param product
+     * @param numberOfUnits
+     * @see sweep.IBasket#addProduce(sweep.products.IProduct, int)
+     */
+    @Override
+    public void addProduce(IProduct product, int numberOfUnits) {
+        for(int ct = 1; ct <= numberOfUnits; ct++){
+            products.add(product);
+        }
+    }
 }

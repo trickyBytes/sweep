@@ -14,12 +14,15 @@ import sweep.products.IProduct;
 public interface IBasket {
 
     /**
-     * TODO.
+     * Adds one unit of product
      * 
      * @param product
      */
     void addProduce(IProduct product);
 
+    void addProduce(IProduct product, int numberOfUnits);
+    
+    
     /**
      * TODO.
      * 

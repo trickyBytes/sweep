@@ -21,6 +21,7 @@ import sweep.offers.IOffer;
 import sweep.products.IProduct;
 import sweep.products.impl.Beans;
 import sweep.products.impl.Coke;
+import sweep.products.impl.Oranges;
 
 /**
  * CheckoutTests.
@@ -32,6 +33,7 @@ public class TillTest {
     ITill till;
     IProduct coke;
     IProduct beans;
+    IProduct oranges;
     
     IOffer twoForOneOnCoke;
     
@@ -39,6 +41,7 @@ public class TillTest {
     public void setUp(){
         coke = new Coke(new Price(70));
         beans = new Beans(new Price(50));
+        oranges = new Oranges(new Price(0.00199));
     }
         
     @Test
@@ -82,8 +85,7 @@ public class TillTest {
         till.addOffer(offer);
         
         basket = new Basket();
-        basket.addProduce(coke);
-        basket.addProduce(coke);
+        basket.addProduce(coke, 2);
         basket.addProduce(beans);
         
         assertTrue("Subtotal", new BigDecimal(190).equals(((Till)till).calculateSubTotal(basket)));

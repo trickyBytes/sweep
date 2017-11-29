@@ -16,6 +16,10 @@ public class Price implements IPrice {
         this.price = new BigDecimal(price);
     }
     
+    public Price(double price) {
+        this.price = new BigDecimal(price);
+    }
+    
     /**
      * @return
      * @see sweep.IPrice#get()
