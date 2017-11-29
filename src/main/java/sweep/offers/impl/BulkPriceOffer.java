@@ -2,8 +2,6 @@ package sweep.offers.impl;
 
 import java.util.UUID;
 
-import sweep.ISaving;
-import sweep.impl.Saving;
 import sweep.offers.IOffer;
 import sweep.products.IProduct;
 
