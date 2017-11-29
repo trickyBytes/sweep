@@ -12,10 +12,9 @@ import sweep.offers.IOffer;
  *
  * @author trickyBytes
  */
-public class BulkPriceOffer implements IOffer {
+public class BulkPriceOffer extends Offer implements IOffer{
 
     private final int bulkPrice;
-    private final UUID productId;
     private final int amount;
 
     /**
@@ -24,12 +23,13 @@ public class BulkPriceOffer implements IOffer {
      * @param amount
      */
     public BulkPriceOffer(UUID productId, int amount, int bulkPrice) {
+        super(productId);
+        
         if (amount <= 0){
             throw new IllegalArgumentException("amount should be greater than zero");
         }
                 
         this.bulkPrice = bulkPrice;
-        this.productId = productId;
         this.amount = amount;
     }
 
@@ -42,21 +42,12 @@ public class BulkPriceOffer implements IOffer {
     public ISaving getSaving(IProduct product, int amount) {
         ISaving saving = new Saving(0);
 
-        if (product.getId().equals(productId) && amount >= this.amount) {
+        if (product.getId().equals(getProductId()) && amount >= this.amount) {
             final int multiples = amount / this.amount;
             final int subTotal = (multiples * this.amount) * product.getPrice();
             saving = new Saving((bulkPrice * multiples) - subTotal);
         }
 
         return saving;
-    }
-
-    /**
-     * @return
-     * @see sweep.offers.IOffer#getProductId()
-     */
-    @Override
-    public UUID getProductId() {
-        return productId;
     }
 }
