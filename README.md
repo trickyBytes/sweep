@@ -45,8 +45,7 @@ Total/3 but what happens if there are 4 items? Usually this would be a full-pric
 ### TODO's
 - Test combinations of offers
 - Look at complexity, can offers and products be simpler, plus do we need a til?
-- Units for products  - i.e. weighted products
-- Rounding decided early on to have amounts as integers as it avoided rounding but kg/grams is a problem now
+- Rounding what should rounding be?
 - Products - seems like there are just 2 types for now a simple product measured in n products and weighted one
 
 
