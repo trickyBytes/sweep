@@ -8,13 +8,13 @@ import sweep.products.IProduct;
  *
  * @author trickyBytes
  */
-public class Beans extends Coke implements IProduct {
+public class Beans extends Product implements IProduct {
 
     /**
      * @param price
      */
     public Beans(IPrice price) {
-        super(price);
+        super(price, "Beans");
     }
 
 }

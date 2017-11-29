@@ -24,4 +24,6 @@ public interface IProduct {
      * @return
      */
     UUID getId();
+    
+    String getName();
 }
