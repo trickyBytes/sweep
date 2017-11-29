@@ -1,9 +1,9 @@
 package sweep.impl;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import sweep.IBasket;
 import sweep.ISaving;
@@ -19,13 +19,17 @@ import sweep.products.IProduct;
 public class Till implements ITill {
     List<IOffer> offers = new ArrayList<IOffer>();
 
-    protected int calculateSubTotal(IBasket basket) {
-        return basket.getItems()
-                .stream()
-                .mapToInt(item -> item.getPrice()).sum();
+    protected BigDecimal calculateSubTotal(IBasket basket) {
+        BigDecimal subtotal = BigDecimal.ZERO;
+        
+        for(IProduct item : basket.getItems()){
+            subtotal = subtotal.add(item.getPrice().get());
+        }
+        
+        return subtotal;
     }
 
-    protected int calcualteSavings(IBasket basket, List<IOffer> offers) {
+    protected BigDecimal calculate(IBasket basket, List<IOffer> offers) {
         Map<IProduct, Long> amountOfProducts = basket.ammountOfProducts();
         List<ISaving> savings = new ArrayList<>();
 
@@ -40,7 +44,13 @@ public class Till implements ITill {
             }
         }
         
-        return (int) savings.stream().collect(Collectors.summarizingInt(ISaving::getAmmount)).getSum();
+        
+        BigDecimal savingAmnt = BigDecimal.ZERO;
+        for(ISaving saving : savings){
+            savingAmnt = savingAmnt.add(saving.getAmmount());
+        }
+        
+        return savingAmnt;
     }
 
     /**
@@ -49,11 +59,11 @@ public class Till implements ITill {
      * @see sweep.ITill#calculateTotal(sweep.IBasket)
      */
     @Override
-    public int calculateTotal(IBasket basket) {
-        final int subtotal = calculateSubTotal(basket);
-        final int savings = calcualteSavings(basket, offers);
+    public BigDecimal calculateTotal(IBasket basket) {
+        final BigDecimal subtotal = calculateSubTotal(basket);
+        final BigDecimal savings = calculate(basket, offers);
 
-        return subtotal + savings;
+        return subtotal.add(savings);
     }
 
     /**

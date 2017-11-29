@@ -1,5 +1,6 @@
 package sweep.offers.impl;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import sweep.ISaving;
@@ -27,13 +28,16 @@ public abstract class Offer implements IOffer {
      */
     @Override
     public ISaving getSaving(IProduct product, int amountOfProduct) {
-        ISaving saving = new Saving(0);
+        ISaving saving = new Saving(BigDecimal.ZERO);
         
         if (product.getId().equals(getProductId()) && amountOfProduct >=  getOfferAmount()) {
             final int multiples = getMultiplesOfOffer(amountOfProduct);
-            final int subTotal = (multiples * getOfferAmount()) * product.getPrice();
+            final BigDecimal subTotal = new BigDecimal(multiples * getOfferAmount()).multiply(product.getPrice().get());
             
-            saving = new Saving((getOfferDiscount(product) * multiples) - subTotal);
+            saving = new Saving(
+                    getOfferDiscount(product)
+                    .multiply(new BigDecimal(multiples))
+                    .subtract(subTotal));
         }
                 
         return saving;
@@ -49,6 +53,6 @@ public abstract class Offer implements IOffer {
     }
     
     abstract protected int getMultiplesOfOffer(int amountOfProduct);
-    abstract protected int getOfferDiscount(IProduct product);
+    abstract protected BigDecimal getOfferDiscount(IProduct product);
     abstract protected int getOfferAmount();
 }

@@ -1,5 +1,6 @@
 package sweep.offers.impl;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import sweep.offers.IOffer;
@@ -38,8 +39,8 @@ public class GetNthItemFreeOffer extends Offer implements IOffer {
      * @see sweep.offers.impl.Offer#getOfferDiscount()
      */
     @Override
-    protected int getOfferDiscount(IProduct product) {
-        return product.getPrice();
+    protected BigDecimal getOfferDiscount(IProduct product) {
+        return product.getPrice().get();
     }
 
     /**

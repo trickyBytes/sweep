@@ -1,5 +1,7 @@
 package sweep;
 
+import java.math.BigDecimal;
+
 /**
  * ISaving.
  *
@@ -12,6 +14,6 @@ public interface ISaving {
      * 
      * @return
      */
-    int getAmmount();
+    BigDecimal getAmmount();
 
 }

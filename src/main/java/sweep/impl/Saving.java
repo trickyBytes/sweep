@@ -1,5 +1,7 @@
 package sweep.impl;
 
+import java.math.BigDecimal;
+
 import sweep.ISaving;
 
 /**
@@ -8,14 +10,14 @@ import sweep.ISaving;
  * @author trickyBytes
  */
 public class Saving implements ISaving {
-    private final int saving;
+    private final BigDecimal saving;
     
     
     /**
      * @param bulkPrice
      */
-    public Saving(int saving) {
-        this.saving = saving;
+    public Saving(BigDecimal bigDecimal) {
+        this.saving = bigDecimal;
     }
 
     /**
@@ -23,7 +25,7 @@ public class Saving implements ISaving {
      * @see sweep.ISaving#getAmmount()
      */
     @Override
-    public int getAmmount() {
+    public BigDecimal getAmmount() {
         return saving;
     }
 

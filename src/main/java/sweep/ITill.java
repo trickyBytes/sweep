@@ -1,5 +1,7 @@
 package sweep;
 
+import java.math.BigDecimal;
+
 import sweep.offers.IOffer;
 
 /**
@@ -15,7 +17,7 @@ public interface ITill {
      * @param basket
      * @return
      */
-    int calculateTotal(IBasket basket);
+    BigDecimal calculateTotal(IBasket basket);
 
     /**
      * TODO.

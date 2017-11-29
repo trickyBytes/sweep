@@ -1,9 +1,11 @@
 package sweep.impl;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -35,8 +37,8 @@ public class TillTest {
     
     @Before
     public void setUp(){
-        coke = new Coke(70);
-        beans = new Beans(50);
+        coke = new Coke(new Price(70));
+        beans = new Beans(new Price(50));
     }
         
     @Test
@@ -47,7 +49,7 @@ public class TillTest {
         basket = new Basket();
         basket.addProduce(coke);
         
-        assertEquals(70, till.calculateTotal(basket));
+        assertEquals(new BigDecimal(70), till.calculateTotal(basket));
     }
     
     
@@ -70,7 +72,7 @@ public class TillTest {
     @Test
     public void applyBulkOffer() throws Exception {
         ISaving saving = mock(ISaving.class);
-        when(saving.getAmmount()).thenReturn(-40);
+        when(saving.getAmmount()).thenReturn(new BigDecimal(-40));
                 
         IOffer offer = mock(IOffer.class);
         when(offer.getSaving(coke, 2)).thenReturn(saving);
@@ -84,8 +86,8 @@ public class TillTest {
         basket.addProduce(coke);
         basket.addProduce(beans);
         
-        assertEquals("Subtotal", 190, ((Till)till).calculateSubTotal(basket));
-        assertEquals("Savings", -40, ((Till)till).calcualteSavings(basket, Arrays.asList(offer)));
-        assertEquals("Total Price", 150, till.calculateTotal(basket));
+        assertTrue("Subtotal", new BigDecimal(190).equals(((Till)till).calculateSubTotal(basket)));
+        assertTrue("Savings", new BigDecimal(-40).equals(((Till)till).calculate(basket, Arrays.asList(offer))));
+        assertTrue("Total Price", new BigDecimal(150).equals(till.calculateTotal(basket)));
     }
 }
