@@ -3,6 +3,7 @@ package sweep.offers.impl;
 import java.util.UUID;
 
 import sweep.ISaving;
+import sweep.impl.Saving;
 import sweep.offers.IOffer;
 import sweep.products.IProduct;
 
@@ -25,7 +26,18 @@ public abstract class Offer implements IOffer {
      * @see sweep.offers.IOffer#getSaving(sweep.products.IProduct, int)
      */
     @Override
-    abstract public ISaving getSaving(IProduct product, int amount);
+    public ISaving getSaving(IProduct product, int amountOfProduct) {
+        ISaving saving = new Saving(0);
+        
+        if (product.getId().equals(getProductId()) && amountOfProduct >=  getOfferAmount()) {
+            final int multiples = getMultiplesOfOffer(amountOfProduct);
+            final int subTotal = (multiples * getOfferAmount()) * product.getPrice();
+            
+            saving = new Saving((getOfferDiscount(product) * multiples) - subTotal);
+        }
+                
+        return saving;
+    }
 
     /**
      * @return
@@ -35,4 +47,8 @@ public abstract class Offer implements IOffer {
     public UUID getProductId() {
         return productId;
     }
+    
+    abstract protected int getMultiplesOfOffer(int amountOfProduct);
+    abstract protected int getOfferDiscount(IProduct product);
+    abstract protected int getOfferAmount();
 }

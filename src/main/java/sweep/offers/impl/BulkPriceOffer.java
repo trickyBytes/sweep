@@ -34,20 +34,31 @@ public class BulkPriceOffer extends Offer implements IOffer{
     }
 
     /**
-     * @param product
+     * @param amountOfProduct
      * @return
-     * @see sweep.offers.IOffer#getSaving(sweep.products.IProduct)
+     * @see sweep.offers.impl.Offer#getMultiplesOfOffer(int)
      */
     @Override
-    public ISaving getSaving(IProduct product, int amount) {
-        ISaving saving = new Saving(0);
+    protected int getMultiplesOfOffer(int amountOfProduct) {
+        return amountOfProduct / this.amount;
+    }
 
-        if (product.getId().equals(getProductId()) && amount >= this.amount) {
-            final int multiples = amount / this.amount;
-            final int subTotal = (multiples * this.amount) * product.getPrice();
-            saving = new Saving((bulkPrice * multiples) - subTotal);
-        }
+    /**
+     * @param product
+     * @return
+     * @see sweep.offers.impl.Offer#getOfferDiscount(sweep.products.IProduct)
+     */
+    @Override
+    protected int getOfferDiscount(IProduct product) {
+        return bulkPrice;
+    }
 
-        return saving;
+    /**
+     * @return
+     * @see sweep.offers.impl.Offer#getOfferAmount()
+     */
+    @Override
+    protected int getOfferAmount() {
+        return this.amount;
     }
 }
