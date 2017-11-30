@@ -46,7 +46,11 @@ Total/3 but what happens if there are 4 items? Usually this would be a full-pric
 - Test combinations of offers
 - Look at complexity, can offers and products be simpler, plus do we need a til?
 - Rounding what should rounding be?
-- Products - seems like there are just 2 types for now a simple product measured in n products and weighted one
+- Look at JODA money
+- Show a nice formatted reciept
+- I think offers are basket visitors or strategies so alter the code to match
+- Implenent units in products
+- Turns out unique ID's for products are called SKUS - maybe call them that and create class for them
 
 
 
