@@ -7,16 +7,17 @@ import java.util.Map;
 
 import sweep.Basket;
 import sweep.ISaving;
-import sweep.ITill;
+import sweep.Till;
 import sweep.offers.IOffer;
 import sweep.products.IProduct;
 
 /**
- * Till.
+ * {@link Till} implementation does nothing more than sum the price of products, apply offers and return a total.
+ * More complicated implementations might do things like inventory handling.
  *
  * @author trickyBytes
  */
-public class Till implements ITill {
+public class SimpleTill implements Till {
     List<IOffer> offers = new ArrayList<IOffer>();
 
     protected BigDecimal calculateSubTotal(Basket basket) {
@@ -42,8 +43,7 @@ public class Till implements ITill {
                     savings.add(saving);
                 }
             }
-        }
-        
+        }        
         
         BigDecimal savingAmnt = BigDecimal.ZERO;
         for(ISaving saving : savings){
@@ -56,7 +56,7 @@ public class Till implements ITill {
     /**
      * @param basket
      * @return
-     * @see sweep.ITill#calculateTotal(sweep.Basket)
+     * @see sweep.Till#calculateTotal(sweep.Basket)
      */
     @Override
     public BigDecimal calculateTotal(Basket basket) {
@@ -68,7 +68,7 @@ public class Till implements ITill {
 
     /**
      * @param offer
-     * @see sweep.ITill#addOffer(sweep.offers.IOffer)
+     * @see sweep.Till#addOffer(sweep.offers.IOffer)
      */
     @Override
     public void addOffer(IOffer offer) {
