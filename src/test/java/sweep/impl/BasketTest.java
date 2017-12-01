@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import org.junit.Test;
 
-import sweep.IBasket;
+import sweep.Basket;
 import sweep.products.IProduct;
 
 /**
@@ -25,7 +25,7 @@ public class BasketTest {
         coke = mock(IProduct.class);
         when(coke.getId()).thenReturn(UUID.randomUUID());
         
-        IBasket basket = new Basket();
+        Basket basket = new SupermarketBasket();
         basket.addProduce(coke, 3);
         
         assertEquals(3,basket.amountOfProduct(coke.getId()));

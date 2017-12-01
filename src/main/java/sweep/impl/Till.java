@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import sweep.IBasket;
+import sweep.Basket;
 import sweep.ISaving;
 import sweep.ITill;
 import sweep.offers.IOffer;
@@ -19,7 +19,7 @@ import sweep.products.IProduct;
 public class Till implements ITill {
     List<IOffer> offers = new ArrayList<IOffer>();
 
-    protected BigDecimal calculateSubTotal(IBasket basket) {
+    protected BigDecimal calculateSubTotal(Basket basket) {
         BigDecimal subtotal = BigDecimal.ZERO;
         
         for(IProduct item : basket.getItems()){
@@ -29,7 +29,7 @@ public class Till implements ITill {
         return subtotal;
     }
 
-    protected BigDecimal calculate(IBasket basket, List<IOffer> offers) {
+    protected BigDecimal calculate(Basket basket, List<IOffer> offers) {
         Map<IProduct, Long> amountOfProducts = basket.ammountOfProducts();
         List<ISaving> savings = new ArrayList<>();
 
@@ -56,10 +56,10 @@ public class Till implements ITill {
     /**
      * @param basket
      * @return
-     * @see sweep.ITill#calculateTotal(sweep.IBasket)
+     * @see sweep.ITill#calculateTotal(sweep.Basket)
      */
     @Override
-    public BigDecimal calculateTotal(IBasket basket) {
+    public BigDecimal calculateTotal(Basket basket) {
         final BigDecimal subtotal = calculateSubTotal(basket);
         final BigDecimal savings = calculate(basket, offers);
 

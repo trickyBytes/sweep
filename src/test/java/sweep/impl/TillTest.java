@@ -13,7 +13,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import sweep.IBasket;
+import sweep.Basket;
 import sweep.ISaving;
 import sweep.ITill;
 import sweep.offers.IOffer;
@@ -30,7 +30,7 @@ import sweep.products.impl.Oranges;
  * @author trickyBytes
  */
 public class TillTest {
-    IBasket basket;
+    Basket basket;
     ITill till;
     IProduct coke;
     IProduct beans;
@@ -48,9 +48,9 @@ public class TillTest {
     @Test
     public void testCalculationOfOneItem() throws Exception {
         ITill till = new Till();
-        IBasket basket = new Basket();
+        Basket basket = new SupermarketBasket();
         
-        basket = new Basket();
+        basket = new SupermarketBasket();
         basket.addProduce(coke);
         
         assertEquals(new BigDecimal(70), till.calculateTotal(basket));
@@ -59,7 +59,7 @@ public class TillTest {
     
     @Test
     public void canCountTheAmountOfProductInBasket() throws Exception {
-        IBasket basket = new Basket();
+        Basket basket = new SupermarketBasket();
         basket.addProduce(coke);
         
         assertEquals(1, basket.amountOfProduct(coke.getId()));
@@ -85,7 +85,7 @@ public class TillTest {
         till = new Till();
         till.addOffer(offer);
         
-        basket = new Basket();
+        basket = new SupermarketBasket();
         basket.addProduce(coke, 2);
         basket.addProduce(beans);
         
@@ -103,7 +103,7 @@ public class TillTest {
         till.addOffer(beansOffer);
         till.addOffer(cokeOffer);
 
-        basket = new Basket();
+        basket = new SupermarketBasket();
         basket.addProduce(coke, 2);
         basket.addProduce(beans, 3);
         basket.addProduce(oranges, 200);

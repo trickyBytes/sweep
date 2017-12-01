@@ -49,6 +49,16 @@ Total/3 but what happens if there are 4 items? Usually this would be a full-pric
 - Products - seems like there are just 2 types for now a simple product measured in n products and weighted one
 
 
+### Part 1a TODO's
+- Run sonar against the code base
+- Fix JAVA Docs
+- Rename interfaces/impls...code smell
+
+- Finish work on price / units
+- FIX: NPE problem in till class
+- Streams - A bit more time to make sure I can use them all places
+
+
 
 
 

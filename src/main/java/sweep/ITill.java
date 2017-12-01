@@ -17,7 +17,7 @@ public interface ITill {
      * @param basket
      * @return
      */
-    BigDecimal calculateTotal(IBasket basket);
+    BigDecimal calculateTotal(Basket basket);
 
     /**
      * TODO.

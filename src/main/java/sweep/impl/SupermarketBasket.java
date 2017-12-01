@@ -7,7 +7,7 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import sweep.IBasket;
+import sweep.Basket;
 import sweep.products.IProduct;
 
 /**
@@ -15,12 +15,12 @@ import sweep.products.IProduct;
  *
  * @author trickyBytes
  */
-public class Basket implements IBasket {
+public class SupermarketBasket implements Basket {
     List<IProduct> products = new ArrayList<>();
     
     /**
      * @param product
-     * @see sweep.IBasket#addProduce(sweep.products.IProduct)
+     * @see sweep.Basket#addProduce(sweep.products.IProduct)
      */
     @Override
     public void addProduce(IProduct product) {
@@ -29,7 +29,7 @@ public class Basket implements IBasket {
 
     /**
      * @return
-     * @see sweep.IBasket#getItems()
+     * @see sweep.Basket#getItems()
      */
     @Override
     public List<IProduct> getItems() {
@@ -39,7 +39,7 @@ public class Basket implements IBasket {
     /**
      * @param id
      * @return
-     * @see sweep.IBasket#amountOfProduct(java.util.UUID)
+     * @see sweep.Basket#amountOfProduct(java.util.UUID)
      */
     @Override
     public long amountOfProduct(UUID id) {
@@ -48,7 +48,7 @@ public class Basket implements IBasket {
 
     /**
      * @return
-     * @see sweep.IBasket#ammountOfProducts()
+     * @see sweep.Basket#ammountOfProducts()
      */
     @Override
     public Map<IProduct, Long> ammountOfProducts() {
@@ -58,7 +58,7 @@ public class Basket implements IBasket {
     /**
      * @param product
      * @param numberOfUnits
-     * @see sweep.IBasket#addProduce(sweep.products.IProduct, int)
+     * @see sweep.Basket#addProduce(sweep.products.IProduct, int)
      */
     @Override
     public void addProduce(IProduct product, int numberOfUnits) {
