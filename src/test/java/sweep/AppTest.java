@@ -6,8 +6,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import sweep.App;
-
 public class AppTest {
     @Test public void testAppHasAGreeting() {
         App classUnderTest = new App();
