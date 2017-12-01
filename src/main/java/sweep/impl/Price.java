@@ -10,14 +10,14 @@ import sweep.IPrice;
  * @author trickyBytes
  */
 public class Price implements IPrice {
-    private final BigDecimal price;
+    private final BigDecimal total;
     
     public Price(int price) {
-        this.price = new BigDecimal(price);
+        this.total = new BigDecimal(price);
     }
     
     public Price(double price) {
-        this.price = new BigDecimal(price);
+        this.total = BigDecimal.valueOf(price);
     }
     
     /**
@@ -26,7 +26,7 @@ public class Price implements IPrice {
      */
     @Override
     public BigDecimal get() {
-        return price;
+        return total;
     }
 
 }

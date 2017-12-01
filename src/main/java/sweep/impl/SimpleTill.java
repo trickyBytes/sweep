@@ -18,7 +18,7 @@ import sweep.products.Product;
  * @author trickyBytes
  */
 public class SimpleTill implements Till {
-    List<Offer> offers = new ArrayList<Offer>();
+    List<Offer> offers = new ArrayList<>();
 
     protected BigDecimal calculateSubTotal(Basket basket) {
         BigDecimal subtotal = BigDecimal.ZERO;

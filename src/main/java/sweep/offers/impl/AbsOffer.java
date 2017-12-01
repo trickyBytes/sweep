@@ -52,7 +52,7 @@ public abstract class AbsOffer implements Offer {
         return productId;
     }
     
-    abstract protected int getMultiplesOfOffer(int amountOfProduct);
-    abstract protected BigDecimal getOfferDiscount(Product product);
-    abstract protected int getOfferAmount();
+    protected abstract int getMultiplesOfOffer(int amountOfProduct);
+    protected abstract BigDecimal getOfferDiscount(Product product);
+    protected abstract int getOfferAmount();
 }

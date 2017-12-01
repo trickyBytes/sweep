@@ -10,14 +10,14 @@ import sweep.ISaving;
  * @author trickyBytes
  */
 public class Saving implements ISaving {
-    private final BigDecimal saving;
+    private final BigDecimal amount;
     
     
     /**
      * @param bulkPrice
      */
     public Saving(BigDecimal bigDecimal) {
-        this.saving = bigDecimal;
+        this.amount = bigDecimal;
     }
 
     /**
@@ -26,7 +26,7 @@ public class Saving implements ISaving {
      */
     @Override
     public BigDecimal getAmmount() {
-        return saving;
+        return amount;
     }
 
 }
