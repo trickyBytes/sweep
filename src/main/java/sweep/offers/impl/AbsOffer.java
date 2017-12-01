@@ -5,18 +5,18 @@ import java.util.UUID;
 
 import sweep.ISaving;
 import sweep.impl.Saving;
-import sweep.offers.IOffer;
+import sweep.offers.Offer;
 import sweep.products.Product;
 
 /**
- * Offer.
+ * Implements methods that are common to all offers
  *
  * @author trickyBytes
  */
-public abstract class Offer implements IOffer {
+public abstract class AbsOffer implements Offer {
     private final UUID productId;
     
-    public Offer(UUID productId) {
+    public AbsOffer(UUID productId) {
         this.productId = productId;
     }
 
@@ -24,7 +24,7 @@ public abstract class Offer implements IOffer {
      * @param product
      * @param amount
      * @return
-     * @see sweep.offers.IOffer#getSaving(sweep.products.Product, int)
+     * @see sweep.offers.Offer#getSaving(sweep.products.Product, int)
      */
     @Override
     public ISaving getSaving(Product product, int amountOfProduct) {
@@ -45,7 +45,7 @@ public abstract class Offer implements IOffer {
 
     /**
      * @return
-     * @see sweep.offers.IOffer#getProductId()
+     * @see sweep.offers.Offer#getProductId()
      */
     @Override
     public UUID getProductId() {

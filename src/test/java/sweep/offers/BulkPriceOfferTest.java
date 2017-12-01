@@ -45,7 +45,7 @@ public class BulkPriceOfferTest {
 
     @Test
     public void testSavingShouldBeTotalCostOfItemsMinusBulkPrice() throws Exception {
-        IOffer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
+        Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
 
         ISaving saving = offer.getSaving(coke, 2);
         assertNotNull(saving);
@@ -54,7 +54,7 @@ public class BulkPriceOfferTest {
 
     @Test
     public void testSavingNotAppliedIfNumberOfProductsIsLowerThanBulkAmount() throws Exception {
-        IOffer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
+        Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
         int amount = 1;
 
         ISaving saving = offer.getSaving(coke, amount);
@@ -64,7 +64,7 @@ public class BulkPriceOfferTest {
     
     @Test
     public void testSavingIsCorrectIfAmountOfItemsIsBulkPlusOne() throws Exception {
-        IOffer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
+        Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
         
         int amount = 3;
         ISaving saving = offer.getSaving(coke, amount);
@@ -74,7 +74,7 @@ public class BulkPriceOfferTest {
     
     @Test
     public void testSavingIsAppliedToMultiplesOfBulkAmounts() throws Exception {
-        IOffer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
+        Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
         
         int amount = 4;
         ISaving saving = offer.getSaving(coke, amount);
@@ -89,7 +89,7 @@ public class BulkPriceOfferTest {
     
     @Test
     public void oddNumberForBulkAmount() throws Exception {
-        IOffer offer = new BulkPriceOffer(beans.getId(), 3, new BigDecimal(100));
+        Offer offer = new BulkPriceOffer(beans.getId(), 3, new BigDecimal(100));
         
         int amount = 3;
         ISaving saving = offer.getSaving(beans, amount);
@@ -99,7 +99,7 @@ public class BulkPriceOfferTest {
 
     @Test
     public void testSavingOnlyAppliedToSelectedProductOnly() throws Exception {
-        IOffer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
+        Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
 
         ISaving saving = offer.getSaving(beans, 3);
         assertNotNull(saving);

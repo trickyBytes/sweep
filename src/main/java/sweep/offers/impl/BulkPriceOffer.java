@@ -3,7 +3,7 @@ package sweep.offers.impl;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import sweep.offers.IOffer;
+import sweep.offers.Offer;
 import sweep.products.Product;
 
 /**
@@ -11,7 +11,7 @@ import sweep.products.Product;
  *
  * @author trickyBytes
  */
-public class BulkPriceOffer extends Offer implements IOffer{
+public class BulkPriceOffer extends AbsOffer implements Offer{
 
     private final BigDecimal bulkPrice;
     private final int amount;
@@ -35,7 +35,7 @@ public class BulkPriceOffer extends Offer implements IOffer{
     /**
      * @param amountOfProduct
      * @return
-     * @see sweep.offers.impl.Offer#getMultiplesOfOffer(int)
+     * @see sweep.offers.impl.AbsOffer#getMultiplesOfOffer(int)
      */
     @Override
     protected int getMultiplesOfOffer(int amountOfProduct) {
@@ -45,7 +45,7 @@ public class BulkPriceOffer extends Offer implements IOffer{
     /**
      * @param product
      * @return
-     * @see sweep.offers.impl.Offer#getOfferDiscount(sweep.products.Product)
+     * @see sweep.offers.impl.AbsOffer#getOfferDiscount(sweep.products.Product)
      */
     @Override
     protected BigDecimal getOfferDiscount(Product product) {
@@ -54,7 +54,7 @@ public class BulkPriceOffer extends Offer implements IOffer{
 
     /**
      * @return
-     * @see sweep.offers.impl.Offer#getOfferAmount()
+     * @see sweep.offers.impl.AbsOffer#getOfferAmount()
      */
     @Override
     protected int getOfferAmount() {

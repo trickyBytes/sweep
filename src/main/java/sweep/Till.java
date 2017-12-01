@@ -2,7 +2,7 @@ package sweep;
 
 import java.math.BigDecimal;
 
-import sweep.offers.IOffer;
+import sweep.offers.Offer;
 import sweep.products.Product;
 
 /**
@@ -22,9 +22,9 @@ public interface Till {
     BigDecimal calculateTotal(Basket basket);
 
     /**
-     * Add an {@link IOffer} that the till should apply when doing {@link #calculateTotal(Basket)}
+     * Add an {@link Offer} that the till should apply when doing {@link #calculateTotal(Basket)}
      * 
      * @param offer
      */
-    void addOffer(IOffer offer);
+    void addOffer(Offer offer);
 }

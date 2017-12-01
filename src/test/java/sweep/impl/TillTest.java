@@ -16,7 +16,7 @@ import org.junit.Test;
 import sweep.Basket;
 import sweep.ISaving;
 import sweep.Till;
-import sweep.offers.IOffer;
+import sweep.offers.Offer;
 import sweep.offers.impl.BulkPriceOffer;
 import sweep.offers.impl.GetNthItemFreeOffer;
 import sweep.products.Product;
@@ -36,7 +36,7 @@ public class TillTest {
     Product beans;
     Product oranges;
     
-    IOffer twoForOneOnCoke;
+    Offer twoForOneOnCoke;
     
     @Before
     public void setUp(){
@@ -78,7 +78,7 @@ public class TillTest {
         ISaving saving = mock(ISaving.class);
         when(saving.getAmmount()).thenReturn(new BigDecimal(-40));
                 
-        IOffer offer = mock(IOffer.class);
+        Offer offer = mock(Offer.class);
         when(offer.getSaving(coke, 2)).thenReturn(saving);
         
         
@@ -96,8 +96,8 @@ public class TillTest {
     
     @Test
     public void fullTillIntegrationTest() throws Exception {
-        IOffer beansOffer = new GetNthItemFreeOffer(beans.getId(), 2);
-        IOffer cokeOffer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
+        Offer beansOffer = new GetNthItemFreeOffer(beans.getId(), 2);
+        Offer cokeOffer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
         
         till = new SimpleTill();
         till.addOffer(beansOffer);

@@ -8,7 +8,7 @@ import java.util.Map;
 import sweep.Basket;
 import sweep.ISaving;
 import sweep.Till;
-import sweep.offers.IOffer;
+import sweep.offers.Offer;
 import sweep.products.Product;
 
 /**
@@ -18,7 +18,7 @@ import sweep.products.Product;
  * @author trickyBytes
  */
 public class SimpleTill implements Till {
-    List<IOffer> offers = new ArrayList<IOffer>();
+    List<Offer> offers = new ArrayList<Offer>();
 
     protected BigDecimal calculateSubTotal(Basket basket) {
         BigDecimal subtotal = BigDecimal.ZERO;
@@ -30,12 +30,12 @@ public class SimpleTill implements Till {
         return subtotal;
     }
 
-    protected BigDecimal calculate(Basket basket, List<IOffer> offers) {
+    protected BigDecimal calculate(Basket basket, List<Offer> offers) {
         Map<Product, Long> amountOfProducts = basket.ammountOfProducts();
         List<ISaving> savings = new ArrayList<>();
 
         for (Map.Entry<Product, Long> entry : amountOfProducts.entrySet()) {
-            for (IOffer offer : offers) {
+            for (Offer offer : offers) {
                 final ISaving saving = offer.getSaving(entry.getKey(), entry.getValue().intValue());
                 
                 //TODO: Why does the above return a null?
@@ -68,10 +68,10 @@ public class SimpleTill implements Till {
 
     /**
      * @param offer
-     * @see sweep.Till#addOffer(sweep.offers.IOffer)
+     * @see sweep.Till#addOffer(sweep.offers.Offer)
      */
     @Override
-    public void addOffer(IOffer offer) {
+    public void addOffer(Offer offer) {
         if(offer == null){
             throw new IllegalArgumentException("Offer cannot be null");
         }

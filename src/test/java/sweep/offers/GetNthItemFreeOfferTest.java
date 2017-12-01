@@ -26,7 +26,7 @@ import sweep.products.Product;
 public class GetNthItemFreeOfferTest {
     
     private Product beans;
-    private IOffer offer;
+    private Offer offer;
     private final int numItemsAtFullPrice = 2;
     
     @Before
