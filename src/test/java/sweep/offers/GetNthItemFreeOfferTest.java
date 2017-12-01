@@ -12,7 +12,7 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import sweep.ISaving;
+import sweep.Saving;
 import sweep.impl.Price;
 import sweep.offers.impl.GetNthItemFreeOffer;
 import sweep.products.Product;
@@ -45,21 +45,21 @@ public class GetNthItemFreeOfferTest {
     
     @Test
     public void testSavingShouldBeTheCostOfItem() throws Exception {
-        ISaving saving = offer.getSaving(beans, 3);
+        Saving saving = offer.getSaving(beans, 3);
         assertNotNull(saving);
         assertTrue(new BigDecimal(-50).equals(saving.getAmmount()));
     }
     
     @Test 
     public void testOfferIsntAppliedUntilNumberOfItemsReached() throws Exception {
-        ISaving saving = offer.getSaving(beans, 2);
+        Saving saving = offer.getSaving(beans, 2);
         assertNotNull(saving);
         assertTrue(BigDecimal.ZERO.equals(saving.getAmmount()));
     }
     
     @Test
     public void testSavingIsAppliedToMultiplesOfOffer() throws Exception {
-        ISaving saving = offer.getSaving(beans, 6);
+        Saving saving = offer.getSaving(beans, 6);
         assertNotNull(saving);
         assertTrue(new BigDecimal(-100).equals(saving.getAmmount()));
         

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import sweep.Basket;
-import sweep.ISaving;
+import sweep.Saving;
 import sweep.Till;
 import sweep.offers.Offer;
 import sweep.products.Product;
@@ -32,11 +32,11 @@ public class SimpleTill implements Till {
 
     protected BigDecimal calculate(Basket basket, List<Offer> offers) {
         Map<Product, Long> amountOfProducts = basket.ammountOfProducts();
-        List<ISaving> savings = new ArrayList<>();
+        List<Saving> savings = new ArrayList<>();
 
         for (Map.Entry<Product, Long> entry : amountOfProducts.entrySet()) {
             for (Offer offer : offers) {
-                final ISaving saving = offer.getSaving(entry.getKey(), entry.getValue().intValue());
+                final Saving saving = offer.getSaving(entry.getKey(), entry.getValue().intValue());
                 
                 //TODO: Why does the above return a null?
                 if (saving != null){
@@ -46,7 +46,7 @@ public class SimpleTill implements Till {
         }        
         
         BigDecimal savingAmnt = BigDecimal.ZERO;
-        for(ISaving saving : savings){
+        for(Saving saving : savings){
             savingAmnt = savingAmnt.add(saving.getAmmount());
         }
         

@@ -2,27 +2,26 @@ package sweep.impl;
 
 import java.math.BigDecimal;
 
-import sweep.ISaving;
+import sweep.Saving;
 
 /**
- * Saving.
- *
+ * Simple implementation of a saving.
  * @author trickyBytes
  */
-public class Saving implements ISaving {
+public class SimpleSaving implements Saving {
     private final BigDecimal amount;
     
     
     /**
      * @param bulkPrice
      */
-    public Saving(BigDecimal bigDecimal) {
+    public SimpleSaving(BigDecimal bigDecimal) {
         this.amount = bigDecimal;
     }
 
     /**
      * @return
-     * @see sweep.ISaving#getAmmount()
+     * @see sweep.Saving#getAmmount()
      */
     @Override
     public BigDecimal getAmmount() {

@@ -2,7 +2,7 @@ package sweep.offers;
 
 import java.util.UUID;
 
-import sweep.ISaving;
+import sweep.Saving;
 import sweep.products.Product;
 
 /**
@@ -14,10 +14,10 @@ public interface Offer {
     /**
      * Returns the saving for a given {@link Product} and amount
      * @param product {@link Product} to calculate the saving for
-     * @param amount {@link ISaving} saving that could be applied
-     * @return {@link ISaving}
+     * @param amount {@link Saving} saving that could be applied
+     * @return {@link Saving}
      */
-    ISaving getSaving(Product product, int amount);
+    Saving getSaving(Product product, int amount);
 
     /**
      * Returns the unique {@link UUID} of the {@link Product} that this offer applies to

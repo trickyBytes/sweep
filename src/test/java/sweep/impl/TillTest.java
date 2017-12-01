@@ -13,7 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sweep.Basket;
-import sweep.ISaving;
+import sweep.Saving;
 import sweep.Till;
 import sweep.offers.Offer;
 import sweep.offers.impl.BulkPriceOffer;
@@ -74,7 +74,7 @@ public class TillTest {
     
     @Test
     public void applyBulkOffer() throws Exception {
-        ISaving saving = mock(ISaving.class);
+        Saving saving = mock(Saving.class);
         when(saving.getAmmount()).thenReturn(new BigDecimal(-40));
                 
         Offer offer = mock(Offer.class);

@@ -11,7 +11,7 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import sweep.ISaving;
+import sweep.Saving;
 import sweep.impl.Price;
 import sweep.offers.impl.BulkPriceOffer;
 import sweep.products.Product;
@@ -46,7 +46,7 @@ public class BulkPriceOfferTest {
     public void testSavingShouldBeTotalCostOfItemsMinusBulkPrice() throws Exception {
         Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
 
-        ISaving saving = offer.getSaving(coke, 2);
+        Saving saving = offer.getSaving(coke, 2);
         assertNotNull(saving);
         assertTrue("Amount of saving", new BigDecimal(-40).equals(saving.getAmmount()));
     }
@@ -56,7 +56,7 @@ public class BulkPriceOfferTest {
         Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
         int amount = 1;
 
-        ISaving saving = offer.getSaving(coke, amount);
+        Saving saving = offer.getSaving(coke, amount);
         assertNotNull(saving);
         assertTrue("Amount of saving", BigDecimal.ZERO.equals(saving.getAmmount()));
     }
@@ -66,7 +66,7 @@ public class BulkPriceOfferTest {
         Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
         
         int amount = 3;
-        ISaving saving = offer.getSaving(coke, amount);
+        Saving saving = offer.getSaving(coke, amount);
         assertNotNull(saving);
         assertTrue("Amount of saving", new BigDecimal(-40).equals(saving.getAmmount()));
     }
@@ -76,7 +76,7 @@ public class BulkPriceOfferTest {
         Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
         
         int amount = 4;
-        ISaving saving = offer.getSaving(coke, amount);
+        Saving saving = offer.getSaving(coke, amount);
         assertNotNull(saving);
         assertTrue("Amount of saving", new BigDecimal(-80).equals(saving.getAmmount()));
         
@@ -91,7 +91,7 @@ public class BulkPriceOfferTest {
         Offer offer = new BulkPriceOffer(beans.getId(), 3, new BigDecimal(100));
         
         int amount = 3;
-        ISaving saving = offer.getSaving(beans, amount);
+        Saving saving = offer.getSaving(beans, amount);
         assertNotNull(saving);
         assertTrue("Amount of saving", new BigDecimal(-50).equals(saving.getAmmount()));
     }
@@ -100,7 +100,7 @@ public class BulkPriceOfferTest {
     public void testSavingOnlyAppliedToSelectedProductOnly() throws Exception {
         Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
 
-        ISaving saving = offer.getSaving(beans, 3);
+        Saving saving = offer.getSaving(beans, 3);
         assertNotNull(saving);
         assertTrue("Amount of saving", BigDecimal.ZERO.equals(saving.getAmmount()));
     }

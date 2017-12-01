@@ -3,8 +3,8 @@ package sweep.offers.impl;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import sweep.ISaving;
-import sweep.impl.Saving;
+import sweep.Saving;
+import sweep.impl.SimpleSaving;
 import sweep.offers.Offer;
 import sweep.products.Product;
 
@@ -27,14 +27,14 @@ public abstract class AbsOffer implements Offer {
      * @see sweep.offers.Offer#getSaving(sweep.products.Product, int)
      */
     @Override
-    public ISaving getSaving(Product product, int amountOfProduct) {
-        ISaving saving = new Saving(BigDecimal.ZERO);
+    public Saving getSaving(Product product, int amountOfProduct) {
+        Saving saving = new SimpleSaving(BigDecimal.ZERO);
         
         if (product.getId().equals(getProductId()) && amountOfProduct >=  getOfferAmount()) {
             final int multiples = getMultiplesOfOffer(amountOfProduct);
             final BigDecimal subTotal = new BigDecimal(multiples * getOfferAmount()).multiply(product.getPrice().get());
             
-            saving = new Saving(
+            saving = new SimpleSaving(
                     getOfferDiscount(product)
                     .multiply(new BigDecimal(multiples))
                     .subtract(subTotal));
