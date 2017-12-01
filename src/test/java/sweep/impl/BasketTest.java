@@ -8,7 +8,7 @@ import java.util.UUID;
 import org.junit.Test;
 
 import sweep.Basket;
-import sweep.products.IProduct;
+import sweep.products.Product;
 
 /**
  * BasketTest.
@@ -17,12 +17,12 @@ import sweep.products.IProduct;
  */
 public class BasketTest {
 
-    private IProduct coke;
+    private Product coke;
     
     
     @Test
     public void canAddNOfProductsToBasket() throws Exception {
-        coke = mock(IProduct.class);
+        coke = mock(Product.class);
         when(coke.getId()).thenReturn(UUID.randomUUID());
         
         Basket basket = new SupermarketBasket();

@@ -9,7 +9,7 @@ import sweep.Basket;
 import sweep.ISaving;
 import sweep.Till;
 import sweep.offers.IOffer;
-import sweep.products.IProduct;
+import sweep.products.Product;
 
 /**
  * {@link Till} implementation does nothing more than sum the price of products, apply offers and return a total.
@@ -23,7 +23,7 @@ public class SimpleTill implements Till {
     protected BigDecimal calculateSubTotal(Basket basket) {
         BigDecimal subtotal = BigDecimal.ZERO;
         
-        for(IProduct item : basket.getItems()){
+        for(Product item : basket.getItems()){
             subtotal = subtotal.add(item.getPrice().get());
         }
         
@@ -31,10 +31,10 @@ public class SimpleTill implements Till {
     }
 
     protected BigDecimal calculate(Basket basket, List<IOffer> offers) {
-        Map<IProduct, Long> amountOfProducts = basket.ammountOfProducts();
+        Map<Product, Long> amountOfProducts = basket.ammountOfProducts();
         List<ISaving> savings = new ArrayList<>();
 
-        for (Map.Entry<IProduct, Long> entry : amountOfProducts.entrySet()) {
+        for (Map.Entry<Product, Long> entry : amountOfProducts.entrySet()) {
             for (IOffer offer : offers) {
                 final ISaving saving = offer.getSaving(entry.getKey(), entry.getValue().intValue());
                 

@@ -15,7 +15,7 @@ import org.junit.Test;
 import sweep.ISaving;
 import sweep.impl.Price;
 import sweep.offers.impl.BulkPriceOffer;
-import sweep.products.IProduct;
+import sweep.products.Product;
 
 /**
  * TwoForOneOfferTest.
@@ -24,16 +24,16 @@ import sweep.products.IProduct;
  */
 public class BulkPriceOfferTest {
 
-    private IProduct coke;
-    private IProduct beans;
+    private Product coke;
+    private Product beans;
 
     @Before
     public void setUp() {
-        coke = mock(IProduct.class);
+        coke = mock(Product.class);
         when(coke.getId()).thenReturn(UUID.randomUUID());
         when(coke.getPrice()).thenReturn(new Price(70));
 
-        beans = mock(IProduct.class);
+        beans = mock(Product.class);
         when(beans.getId()).thenReturn(UUID.randomUUID());
         when(beans.getPrice()).thenReturn(new Price(50));
     }

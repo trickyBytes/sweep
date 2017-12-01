@@ -19,7 +19,7 @@ import sweep.Till;
 import sweep.offers.IOffer;
 import sweep.offers.impl.BulkPriceOffer;
 import sweep.offers.impl.GetNthItemFreeOffer;
-import sweep.products.IProduct;
+import sweep.products.Product;
 import sweep.products.impl.Beans;
 import sweep.products.impl.Coke;
 import sweep.products.impl.Oranges;
@@ -32,9 +32,9 @@ import sweep.products.impl.Oranges;
 public class TillTest {
     Basket basket;
     Till till;
-    IProduct coke;
-    IProduct beans;
-    IProduct oranges;
+    Product coke;
+    Product beans;
+    Product oranges;
     
     IOffer twoForOneOnCoke;
     
@@ -69,7 +69,7 @@ public class TillTest {
         assertEquals(3, basket.amountOfProduct(coke.getId()));
         
         basket.addProduce(beans);
-        Map<IProduct, Long> amountOfProducts = basket.ammountOfProducts();
+        Map<Product, Long> amountOfProducts = basket.ammountOfProducts();
         assertEquals(3, (long) amountOfProducts.get(coke));
     }
     

@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 import sweep.offers.IOffer;
-import sweep.products.IProduct;
+import sweep.products.Product;
 
 /**
  * TwoForOneOffer.
@@ -45,10 +45,10 @@ public class BulkPriceOffer extends Offer implements IOffer{
     /**
      * @param product
      * @return
-     * @see sweep.offers.impl.Offer#getOfferDiscount(sweep.products.IProduct)
+     * @see sweep.offers.impl.Offer#getOfferDiscount(sweep.products.Product)
      */
     @Override
-    protected BigDecimal getOfferDiscount(IProduct product) {
+    protected BigDecimal getOfferDiscount(Product product) {
         return bulkPrice;
     }
 

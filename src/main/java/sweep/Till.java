@@ -3,7 +3,7 @@ package sweep;
 import java.math.BigDecimal;
 
 import sweep.offers.IOffer;
-import sweep.products.IProduct;
+import sweep.products.Product;
 
 /**
  * Mimics that a real till within a shop, takes a Basket of items, calculates a total price by using the price of
@@ -14,10 +14,10 @@ import sweep.products.IProduct;
 public interface Till {
 
     /**
-     * Calculates the total Cost for {@link IProduct} in a {@link Basket}
+     * Calculates the total Cost for {@link Product} in a {@link Basket}
      * 
      * @param basket {@link Basket} to calculate the price for
-     * @return {@link BigDecimal} the cost of the {@link IProduct} in the {@link Basket}
+     * @return {@link BigDecimal} the cost of the {@link Product} in the {@link Basket}
      */
     BigDecimal calculateTotal(Basket basket);
 

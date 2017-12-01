@@ -3,7 +3,7 @@ package sweep.offers;
 import java.util.UUID;
 
 import sweep.ISaving;
-import sweep.products.IProduct;
+import sweep.products.Product;
 
 /**
  * IOfferI.
@@ -12,7 +12,7 @@ import sweep.products.IProduct;
  */
 public interface IOffer {
 
-    ISaving getSaving(IProduct product, int amount);
+    ISaving getSaving(Product product, int amount);
 
     UUID getProductId();
 }

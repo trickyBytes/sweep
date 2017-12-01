@@ -8,7 +8,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import sweep.Basket;
-import sweep.products.IProduct;
+import sweep.products.Product;
 
 /**
  * Basket.
@@ -16,14 +16,14 @@ import sweep.products.IProduct;
  * @author trickyBytes
  */
 public class SupermarketBasket implements Basket {
-    List<IProduct> products = new ArrayList<>();
+    List<Product> products = new ArrayList<>();
     
     /**
      * @param product
-     * @see sweep.Basket#addProduce(sweep.products.IProduct)
+     * @see sweep.Basket#addProduce(sweep.products.Product)
      */
     @Override
-    public void addProduce(IProduct product) {
+    public void addProduce(Product product) {
         this.products.add(product);
     }
 
@@ -32,7 +32,7 @@ public class SupermarketBasket implements Basket {
      * @see sweep.Basket#getItems()
      */
     @Override
-    public List<IProduct> getItems() {
+    public List<Product> getItems() {
         return products;
     }
 
@@ -51,17 +51,17 @@ public class SupermarketBasket implements Basket {
      * @see sweep.Basket#ammountOfProducts()
      */
     @Override
-    public Map<IProduct, Long> ammountOfProducts() {
+    public Map<Product, Long> ammountOfProducts() {
         return products.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 
     /**
      * @param product
      * @param numberOfUnits
-     * @see sweep.Basket#addProduce(sweep.products.IProduct, int)
+     * @see sweep.Basket#addProduce(sweep.products.Product, int)
      */
     @Override
-    public void addProduce(IProduct product, int numberOfUnits) {
+    public void addProduce(Product product, int numberOfUnits) {
         for(int ct = 1; ct <= numberOfUnits; ct++){
             products.add(product);
         }
