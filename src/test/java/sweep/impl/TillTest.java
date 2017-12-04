@@ -2,8 +2,6 @@ package sweep.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -13,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sweep.Basket;
-import sweep.Saving;
 import sweep.Till;
 import sweep.offers.Offer;
 import sweep.offers.impl.BulkPriceOffer;
@@ -74,13 +71,7 @@ public class TillTest {
     
     @Test
     public void applyBulkOffer() throws Exception {
-        Saving saving = mock(Saving.class);
-        when(saving.getAmmount()).thenReturn(new BigDecimal(-40));
-                
-        Offer offer = mock(Offer.class);
-        when(offer.getSaving(coke, 2)).thenReturn(saving);
-        
-        
+        Offer offer = new BulkPriceOffer(coke.getId(), 2, new BigDecimal(100));
         till = new SimpleTill();
         till.addOffer(offer);
         

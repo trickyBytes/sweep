@@ -3,11 +3,8 @@ package sweep.offers;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +13,7 @@ import sweep.Saving;
 import sweep.impl.StorePrice;
 import sweep.offers.impl.GetNthItemFreeOffer;
 import sweep.products.Product;
+import sweep.products.impl.Beans;
 
 /**
  * GetNthItemFreeOfferTest.
@@ -30,9 +28,7 @@ public class GetNthItemFreeOfferTest {
     
     @Before
     public void setUp(){
-        beans = mock(Product.class);
-        when(beans.getId()).thenReturn(UUID.randomUUID());
-        when(beans.getPrice()).thenReturn(new StorePrice(50));
+        beans = new Beans(new StorePrice(50));
         
         offer = new GetNthItemFreeOffer(beans.getId(), numItemsAtFullPrice);
     }

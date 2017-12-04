@@ -2,8 +2,6 @@ package sweep.offers;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -15,6 +13,8 @@ import sweep.Saving;
 import sweep.impl.StorePrice;
 import sweep.offers.impl.BulkPriceOffer;
 import sweep.products.Product;
+import sweep.products.impl.Beans;
+import sweep.products.impl.Coke;
 
 /**
  * TwoForOneOfferTest.
@@ -28,13 +28,8 @@ public class BulkPriceOfferTest {
 
     @Before
     public void setUp() {
-        coke = mock(Product.class);
-        when(coke.getId()).thenReturn(UUID.randomUUID());
-        when(coke.getPrice()).thenReturn(new StorePrice(70));
-
-        beans = mock(Product.class);
-        when(beans.getId()).thenReturn(UUID.randomUUID());
-        when(beans.getPrice()).thenReturn(new StorePrice(50));
+        coke = new Coke(new StorePrice(70));
+        beans = new Beans(new StorePrice(50));
     }
     
     @Test(expected=IllegalArgumentException.class)
