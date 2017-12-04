@@ -37,11 +37,7 @@ public class SimpleTill implements Till {
         for (Map.Entry<Product, Long> entry : amountOfProducts.entrySet()) {
             for (Offer offer : offers) {
                 final Saving saving = offer.getSaving(entry.getKey(), entry.getValue().intValue());
-                
-                //TODO: Why does the above return a null?
-                if (saving != null){
-                    savings.add(saving);
-                }
+                savings.add(saving);
             }
         }        
         

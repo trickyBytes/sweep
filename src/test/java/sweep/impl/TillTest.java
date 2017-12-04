@@ -80,7 +80,7 @@ public class TillTest {
         basket.addProduce(beans);
         
         assertTrue("Subtotal", new BigDecimal(190).equals(((SimpleTill)till).calculateSubTotal(basket)));
-        assertTrue("Savings", new BigDecimal(-40).equals(((SimpleTill)till).calculate(basket, Arrays.asList(offer))));
+        assertEquals("Savings", new BigDecimal(-40).doubleValue(), ((SimpleTill)till).calculate(basket, Arrays.asList(offer)).doubleValue(), 0.2d);
         assertTrue("Total Price", new BigDecimal(150).equals(till.calculateTotal(basket)));
     }
     
