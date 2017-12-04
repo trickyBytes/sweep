@@ -39,9 +39,9 @@ public class TillTest {
     
     @Before
     public void setUp(){
-        coke = new Coke(new StorePrice(70));
-        beans = new Beans(new StorePrice(50));
-        oranges = new Oranges(new StorePrice(0.199));//price per gram
+        coke = new Coke(new StorePrice(BigDecimal.valueOf(70), 1, MeasurementUnit.ITEMS)); //Demonstrates one item price
+        beans = new Beans(new StorePrice(50)); // Demonstrates default pricing (one item)
+        oranges = new Oranges(new StorePrice(BigDecimal.valueOf(0.199), 1, MeasurementUnit.GRAMS));
     }
         
     @Test
@@ -107,7 +107,6 @@ public class TillTest {
         basket.addProduce(beans, 3);
         basket.addProduce(oranges, 200);
         
-        System.out.println(((SimpleTill)till).calculateSubTotal(basket).toString());
         assertEquals("Subtotal", new BigDecimal(330).doubleValue(), ((SimpleTill)till).calculateSubTotal(basket).doubleValue(), 0.2d);
         assertEquals("Savings", new BigDecimal(-90).doubleValue(), ((SimpleTill)till).calculate(basket, Arrays.asList(beansOffer, cokeOffer)).doubleValue(), 0.2d);
         assertEquals("Total Proce", new BigDecimal(240).doubleValue(), till.calculateTotal(basket).doubleValue(), 0.2d);
