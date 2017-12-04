@@ -24,7 +24,7 @@ public class SimpleTill implements Till {
         BigDecimal subtotal = BigDecimal.ZERO;
         
         for(Product item : basket.getItems()){
-            subtotal = subtotal.add(item.getPrice().get());
+            subtotal = subtotal.add(item.getPrice().getCost());
         }
         
         return subtotal;

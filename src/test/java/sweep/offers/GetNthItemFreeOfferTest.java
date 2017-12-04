@@ -13,7 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sweep.Saving;
-import sweep.impl.Price;
+import sweep.impl.StorePrice;
 import sweep.offers.impl.GetNthItemFreeOffer;
 import sweep.products.Product;
 
@@ -32,7 +32,7 @@ public class GetNthItemFreeOfferTest {
     public void setUp(){
         beans = mock(Product.class);
         when(beans.getId()).thenReturn(UUID.randomUUID());
-        when(beans.getPrice()).thenReturn(new Price(50));
+        when(beans.getPrice()).thenReturn(new StorePrice(50));
         
         offer = new GetNthItemFreeOffer(beans.getId(), numItemsAtFullPrice);
     }

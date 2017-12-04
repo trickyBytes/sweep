@@ -40,7 +40,7 @@ public class GetNthItemFreeOffer extends AbsOffer implements Offer {
      */
     @Override
     protected BigDecimal getOfferDiscount(Product product) {
-        return product.getPrice().get();
+        return product.getPrice().getCost();
     }
 
     /**

@@ -1,6 +1,6 @@
 package sweep.products.impl;
 
-import sweep.IPrice;
+import sweep.Price;
 import sweep.products.Product;
 
 /**
@@ -14,7 +14,7 @@ public class Coke extends AbsProduct implements Product {
      * @param price
      * @param name
      */
-    public Coke(IPrice price) {
+    public Coke(Price price) {
         super(price, "Coke");
     }
    

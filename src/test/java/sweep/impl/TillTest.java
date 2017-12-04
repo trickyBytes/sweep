@@ -39,9 +39,9 @@ public class TillTest {
     
     @Before
     public void setUp(){
-        coke = new Coke(new Price(70));
-        beans = new Beans(new Price(50));
-        oranges = new Oranges(new Price(0.199));//price per gram
+        coke = new Coke(new StorePrice(70));
+        beans = new Beans(new StorePrice(50));
+        oranges = new Oranges(new StorePrice(0.199));//price per gram
     }
         
     @Test

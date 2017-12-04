@@ -2,7 +2,7 @@ package sweep.products.impl;
 
 import java.util.UUID;
 
-import sweep.IPrice;
+import sweep.Price;
 import sweep.products.Product;
 
 /**
@@ -11,11 +11,11 @@ import sweep.products.Product;
  * @author trickyBytes
  */
 public abstract class AbsProduct implements Product {
-    private final IPrice price;
+    private final Price price;
     private final UUID id;
     private final String name;
 
-    public AbsProduct(final IPrice price, final String name) {
+    public AbsProduct(final Price price, final String name) {
         this.price = price;
         this.name = name;
         this.id = UUID.randomUUID();
@@ -26,7 +26,7 @@ public abstract class AbsProduct implements Product {
      * @see sweep.products.Product#getPrice()
      */
     @Override
-    public IPrice getPrice() {
+    public Price getPrice() {
         return price;
     }
 

@@ -2,7 +2,7 @@ package sweep.products;
 
 import java.util.UUID;
 
-import sweep.IPrice;
+import sweep.Price;
 
 /**
  * Represents a unique item in the Shop, a Shop would have many of these. Uniquenss is defined by the the ID of the
@@ -13,9 +13,9 @@ import sweep.IPrice;
 public interface Product {
 
     /**
-     * @return The {@link IPrice} of the product
+     * @return The {@link Price} of the product
      */
-    IPrice getPrice();
+    Price getPrice();
 
     /**
      * @return The unique {@link UUID} of the {@link Product}

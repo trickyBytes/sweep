@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sweep.Saving;
-import sweep.impl.Price;
+import sweep.impl.StorePrice;
 import sweep.offers.impl.BulkPriceOffer;
 import sweep.products.Product;
 
@@ -30,11 +30,11 @@ public class BulkPriceOfferTest {
     public void setUp() {
         coke = mock(Product.class);
         when(coke.getId()).thenReturn(UUID.randomUUID());
-        when(coke.getPrice()).thenReturn(new Price(70));
+        when(coke.getPrice()).thenReturn(new StorePrice(70));
 
         beans = mock(Product.class);
         when(beans.getId()).thenReturn(UUID.randomUUID());
-        when(beans.getPrice()).thenReturn(new Price(50));
+        when(beans.getPrice()).thenReturn(new StorePrice(50));
     }
     
     @Test(expected=IllegalArgumentException.class)

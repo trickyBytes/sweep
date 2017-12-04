@@ -32,7 +32,7 @@ public abstract class AbsOffer implements Offer {
         
         if (product.getId().equals(getProductId()) && amountOfProduct >=  getOfferAmount()) {
             final int multiples = getMultiplesOfOffer(amountOfProduct);
-            final BigDecimal subTotal = new BigDecimal(multiples * getOfferAmount()).multiply(product.getPrice().get());
+            final BigDecimal subTotal = new BigDecimal(multiples * getOfferAmount()).multiply(product.getPrice().getCost());
             
             saving = new SimpleSaving(
                     getOfferDiscount(product)
